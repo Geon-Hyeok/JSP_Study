@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%-- 로그인 상태의 사용자에게 환영메세지를 전달하여 응답하는 JSP 문서 --%>
@@ -59,11 +60,3 @@ if (loginId == null) {//반환받은 속성값(객체)가 없는 경우 - 비로
 		width="200">
 </body>
 </html>
-
-
-
-
-
-
-
-
