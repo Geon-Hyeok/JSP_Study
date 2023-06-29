@@ -1,7 +1,7 @@
 <%@page import="java.net.URLEncoder"%>
 <%@page import="xyz.itwill.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%--
 	//바인딩된 세션에서 권한 관련 정보의 속성값을 객체(로그인 상태의 사용자정보)로 반환받아 저장
 	MemberDTO loginMember=(MemberDTO)session.getAttribute("loginMember");
@@ -16,15 +16,13 @@
 				
 		//request.getQueryString() : 요청 URL 주소에서 질의문자열(QueryString)을 반환하는 메소드 
 		String queryString=request.getQueryString();		
-		//System.out.println("queryString = "+queryString);//requestURI = /jsp/index.jsp
+		//System.out.println("queryString = "+queryString);//queryString = group=cart&worker=cart_list
 		
-		String returnUrl="";
+		String returnUrl=requestURI;
 		if(queryString!=null) {
-			returnUrl=requestURI+"?"+queryString;
-		} else {
-			returnUrl=requestURI;
-		}
-		//System.out.println("returnUrl = "+returnUrl);
+			returnUrl+="?"+queryString;
+		} 
+		//System.out.println("returnUrl = "+returnUrl);//returnUrl = /jsp/index.jsp?group=cart&worker=cart_list
 		
 		//로그인 후 요청할 JSP 문서의 URL 주소를 부호화 처리하여 저장
 		returnUrl=URLEncoder.encode(returnUrl, "utf-8");
@@ -37,5 +35,5 @@
 		return;
 	}
 --%>
-<%@include file="/security/login_returnUrl.jspf"%>
+<%@include file="/security/login_returnUrl.jspf" %>
 <h1>장바구니 목록</h1>
