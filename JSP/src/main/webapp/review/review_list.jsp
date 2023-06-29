@@ -233,10 +233,9 @@ td {
 	%>
 	<div id="page_list">
 	<% if(startPage>blockSize) { %>
-		<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list&pageNum=1&search=<%=search%>&keyword=<%=keyword%>">[처음]</a>
 		<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list&pageNum=<%=startPage-blockSize%>&search=<%=search%>&keyword=<%=keyword%>">[이전]</a>
 	<% } else { %>
-		[처음][이전]
+		[이전]
 	<% } %>
 	
 	<% for(int i=startPage;i<=endPage;i++) { %>
@@ -251,9 +250,8 @@ td {
 	
 	<% if(endPage!=totalPage) { %>
 		<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list&pageNum=<%=startPage+blockSize%>&search=<%=search%>&keyword=<%=keyword%>">[다음]</a>
-		<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list&pageNum=<%=totalPage%>&search=<%=search%>&keyword=<%=keyword%>">[마지막]</a>
 	<% } else { %>
-		[다음][마지막]
+		[다음]
 	<% } %>
 	</div>
 	
@@ -269,19 +267,3 @@ td {
 		<button type="submit">게시글 검색</button>
 	</form>
 </div>
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
